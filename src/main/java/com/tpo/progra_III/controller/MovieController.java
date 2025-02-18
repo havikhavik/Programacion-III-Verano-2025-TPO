@@ -19,7 +19,7 @@ public class MovieController {
     Mono<MovieEntity> createOrUpdateMovie(@RequestBody MovieEntity newMovie) {
         return movieRepository.save(newMovie);
     }
-    @GetMapping(value = { "", "/" }, produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+    @GetMapping(value = { "", "/" }, produces = MediaType.APPLICATION_JSON_VALUE)
     Flux<MovieEntity> getMovies() {
         return movieRepository.findAll();
     }
